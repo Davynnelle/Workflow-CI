@@ -1,0 +1,21 @@
+name: wildfire-classification
+
+conda_env: conda.yaml
+
+entry_points:
+  main:
+    parameters:
+      data_dir:
+        type: str
+        default: wildfire_preprocessing
+      n_estimators:
+        type: float
+        default: 100
+      max_depth:
+        type: float
+        default: 20
+    command: >
+      python modelling.py
+        --data_dir {data_dir}
+        --n_estimators {n_estimators}
+        --max_depth {max_depth}
