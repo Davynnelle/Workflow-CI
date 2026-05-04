@@ -37,6 +37,13 @@ jobs:
           python modelling.py --use_dagshub
           cat run_id.txt
 
+      - name: Upload to GitHub
+        uses: actions/upload-artifact@v4
+        with:
+          name: mlflow-artifacts
+          path: MLProject/mlruns/
+          retention-days: 7
+
       - name: Get latest MLflow run_id
         id: get_run_id
         env:
